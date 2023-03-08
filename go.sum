@@ -1,0 +1,13 @@
+# This file is maintained by Go. DO NOT EDIT.
+
+# The go.sum file contains the cryptographic checksums of the content of
+# specific module versions. It is used by the Go module system to
+# authenticate downloaded modules and ensure that the dependencies used
+# in a build are exactly those recorded in the go.sum file.
+#
+# Each line in this file has the format:
+# <module> <version>[/go.mod] <hash>
+#
+# - <module>: The module path (e.g., github.com/gorilla/mux).
+# - <version>: The module version (e.g., v1.8.1).
+# - /go.mod (optional): Indicates that the hash is for the go.
