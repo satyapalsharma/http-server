@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go HTTP Server - Home</title>
+    <!--
+        Link to the main stylesheet for consistent styling across the application.
+        The path '/static/css/style.css' assumes the static file server
+        is configured to serve the 'web/static' directory under the '/static/' URL prefix.
+    -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header section for the main title and a brief description -->
+        <header>
+            <h1>Welcome to Your Go HTTP Server!</h1>
+            <p class="subtitle">A lightweight, high-performance HTTP server built with Go.</p>
+        </header>
+
+        <!-- Main content area of the page -->
+        <main>
+            <section class="intro">
+                <h2>About This Server</h2>
+                <p>
+                    This page serves as the default entry point for your custom Go HTTP server.
+                    It demonstrates the server's capability to efficiently serve static files,
+                    which is crucial for web applications.
+                </p>
+                <p>
+                    The server is designed with modularity and performance in mind, offering:
+                </p>
+                <!-- List of key server features -->
+                <ul class="feature-list">
+                    <li><strong>Robust Routing:</strong> Define clean and efficient URL paths for your application's endpoints.</li>
+                    <li><strong>Flexible Middleware:</strong> Easily integrate cross-cutting concerns like logging, authentication, and error handling.</li>
+                    <li><strong>Static File Serving:</strong> Deliver HTML, CSS, JavaScript, images, and other assets with ease (as you're experiencing now!).</li>
+                    <li><strong>JSON APIs:</strong> Build powerful RESTful APIs for seamless data exchange with frontend applications or other services.</li>
+                </ul>
+            </section>
+
+            <section class="explore">
+                <h2>Explore Further</h2>
+                <p>
+                    Here are some links to demonstrate various functionalities of the server:
+                </p>
+                <!-- Links to demonstrate different server features -->
+                <ul>
+                    <li><a href="/api/hello">Access the "Hello" API Endpoint</a> (Expects a JSON response from <code>internal/api/handlers.go</code>).</li>
+                    <li><a href="/static/css/style.css">View the main CSS Stylesheet</a> (Served directly as a static file from <code>web/static/css/style.css</code>).</li>
+                    <li><a href="/static/example.txt">Example Text File</a> (If <code>web/static/example.txt</code> exists, demonstrates serving arbitrary text files).</li>
+                    <!--
+                        Uncomment and implement dynamic routes as your server evolves.
+                        <li><a href="/greet/GoDeveloper">Try a dynamic route (e.g., /greet/YourName)</a></li>
+                    -->
+                </ul>
+            </section>
+        </main>
+
+        <!-- Footer section with copyright and project information -->
+        <footer>
+            <p>&copy; 2023 Go HTTP Server Project. All rights reserved.</p>
+            <p>Powered by Go. For more information, refer to the project's <a href="https://github.com/your-org/your-repo-name" target="_blank" rel="noopener noreferrer">GitHub Repository</a> (replace with actual link).</p>
+        </footer>
+    </div>
+</body>
+</html>
