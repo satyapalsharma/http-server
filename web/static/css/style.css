@@ -1,0 +1,297 @@
+/*
+ * style.css
+ *
+ * This file provides the main styling for the HTTP server's web interface.
+ * It uses a clean, modern aesthetic with a dark theme, focusing on readability
+ * and a responsive layout.
+ */
+
+/* --- 1. Basic Reset & Box Sizing --- */
+/*
+ * A simple reset to ensure consistent styling across different browsers.
+ * `box-sizing: border-box` makes layout calculations much more intuitive.
+ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- 2. Global Styles --- */
+/*
+ * Defines base styles for the entire document, including font, background,
+ * and default text color.
+ */
+:root {
+    /* Color Palette */
+    --color-bg-primary: hsl(210, 30%, 8%);   /* Dark background */
+    --color-bg-secondary: hsl(210, 20%, 12%); /* Slightly lighter dark for cards/sections */
+    --color-text-primary: hsl(210, 20%, 80%); /* Light grey text */
+    --color-text-secondary: hsl(210, 15%, 60%); /* Muted grey text */
+    --color-accent: hsl(170, 70%, 45%);       /* Teal/Cyan accent */
+    --color-accent-hover: hsl(170, 70%, 55%); /* Brighter teal for hover states */
+    --color-border: hsl(210, 15%, 20%);       /* Darker grey for borders */
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* Font Sizes */
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 3rem;
+
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+}
+
+body {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex;
+    flex-direction: column; /* For sticky footer pattern */
+    -webkit-font-smoothing: antialiased; /* Improve font rendering on macOS */
+    -moz-osx-font-smoothing: grayscale; /* Improve font rendering on macOS */
+}
+
+/* --- 3. Layout --- */
+
+/* Container for centering content and limiting its width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    width: 100%;
+}
+
+/* Header styling */
+.header {
+    background-color: var(--color-bg-secondary);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.header nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.header nav a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.header nav a:hover,
+.header nav a.active {
+    color: var(--color-accent-hover);
+}
+
+/* Main content area */
+.main-content {
+    flex: 1; /* Allows main content to grow and push footer down */
+    padding: var(--spacing-xl) 0;
+}
+
+/* Footer styling */
+.footer {
+    background-color: var(--color-bg-secondary);
+    padding: var(--spacing-md) 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--spacing-xl); /* Add some space above the footer */
+}
+
+/* --- 4. Typography --- */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: var(--font-size-xxl);
+    font-weight: 800;
+    color: var(--color-accent);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-top: var(--spacing-lg);
+}
+
+h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-top: var(--spacing-md);
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+}
+
+/* --- 5. Buttons --- */
+
+.btn {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    border-color: var(--color-accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    color: var(--color-bg-primary);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+}
+
+/* --- 6. Cards / Boxes --- */
+
+.card {
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-border);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* --- 7. Utility Classes --- */
+
+.text-center {
+    text-align: center;
+}
+
+.margin-top-lg {
+    margin-top: var(--spacing-lg);
+}
+
+.margin-bottom-lg {
+    margin-bottom: var(--spacing-lg);
+}
+
+.flex-group {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+/* --- 8. Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .header nav ul {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-lg);
+    }
+
+    .main-content {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-base: 0.9375rem; /* Slightly smaller base font */
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    h1 {
+        font-size: var(--font-size-lg);
+    }
+}
